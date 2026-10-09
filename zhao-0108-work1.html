@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>个人介绍 | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#38bdf8',
+            dark: '#0f172a',
+            card: '#1e293b',
+          },
+          fontFamily: {
+            sans: ['system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .text-gradient {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 30px rgba(56,189,248,0.15);
+      }
+      /* 折叠拉开动画 */
+      .collapse-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.45s ease;
+      }
+      .collapse-content.open {
+        max-height: 2000px;
+      }
+      /* 滚动入场动画 */
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+      }
+      .scroll-reveal.visible {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+    body {
+      background-color: #0f172a;
+      background-image: radial-gradient(circle at 20% 10%, rgba(56,189,248,0.08), transparent 40%);
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-slate-200 font-sans">
+  <!-- 顶部导航 -->
+  <nav class="fixed w-full top-0 z-50 backdrop-blur-md bg-dark/70 border-b border-slate-800">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+      <span class="text-primary font-semibold">Portfolio</span>
+      <div class="space-x-6 text-sm">
+        <a href="#about" class="hover:text-primary transition-colors">关于我</a>
+        <a href="#skills" class="hover:text-primary transition-colors">技能工具</a>
+        <a href="#project" class="hover:text-primary transition-colors">项目作品</a>
+        <a href="#interest" class="hover:text-primary transition-colors">研究方向</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 主体容器 -->
+  <main class="max-w-5xl mx-auto px-6 pt-32 pb-20">
+    <!-- 头部简介 -->
+    <section id="about" class="mb-20 scroll-reveal">
+      <p class="text-primary tracking-widest text-sm mb-3">HELLO, 你好</p>
+      <h1 class="text-5xl md:text-6xl font-bold mb-6">
+        我是<span class="bg-gradient-to-r from-primary to-blue-400 text-gradient">赵学佑</span>
+      </h1>
+      <p class="text-slate-400 text-lg max-w-2xl leading-relaxed">
+        理工科在读学生，热爱嵌入式开发与程序算法。喜欢动手搭建嵌入式实验平台，完成硬件与软件整套方案调试。
+      </p>
+      <div class="mt-8 grid md:grid-cols-2 gap-4">
+        <div class="bg-card rounded-xl p-5 border border-slate-700 card-hover">
+          <i class="fa fa-university text-primary text-xl mb-3"></i>
+          <h3 class="text-lg font-medium mb-1">院校</h3>
+          <p class="text-slate-400">山东师范大学 | 计算机科学与技术</p>
+        </div>
+        <div class="bg-card rounded-xl p-5 border border-slate-700 card-hover">
+          <i class="fa fa-book text-primary text-xl mb-3"></i>
+          <h3 class="text-lg font-medium mb-1">学习方向</h3>
+          <p class="text-slate-400">嵌入式开发、C语言程序开发</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 技能 & 软件工具 -->
+    <section id="skills" class="mb-20 scroll-reveal">
+      <h2 class="text-3xl font-bold mb-2">技能 & 工具</h2>
+      <p class="text-slate-400 mb-10">日常使用的编程与办公软件</p>
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="bg-card rounded-xl p-5 border border-slate-700 card-hover">
+          <i class="fa fa-code text-primary text-xl mb-3"></i>
+          <h3 class="font-medium mb-2">编程语言</h3>
+          <div class="text-slate-400 text-sm space-y-1">
+            <p>C / C++</p>
+            <p>Python</p>
+          </div>
+        </div>
+        <div class="bg-card rounded-xl p-5 border border-slate-700 card-hover">
+          <i class="fa fa-microchip text-primary text-xl mb-3"></i>
+          <h3 class="font-medium mb-2">嵌入式开发</h3>
+          <div class="text-slate-400 text-sm space-y-1">
+            <p>STM32 标准库开发</p>
+            <p>ADC/DMA/TIM外设驱动</p>
+          </div>
+        </div>
+        <div class="bg-card rounded-xl p-5 border border-slate-700 card-hover">
+          <i class="fa fa-file-text text-primary text-xl mb-3"></i>
+          <h3 class="font-medium mb-2">Office套件</h3>
+          <div class="text-slate-400 text-sm space-y-1">
+            <p>Word文档撰写</p>
+            <p>PPT演示文稿制作</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 项目作品 -->
+    <section id="project" class="mb-20 scroll-reveal">
+      <h2 class="text-3xl font-bold mb-2">项目作品</h2>
+      <p class="text-slate-400 mb-10">点击卡片展开查看详情</p>
+      <div class="bg-card rounded-xl border border-slate-700 card-hover">
+        <!-- 点击头部触发拉开 -->
+        <div class="collapse-header p-5 cursor-pointer flex justify-between items-center">
+          <div class="flex items-center gap-4">
+            <i class="fa fa-microchip text-primary text-2xl"></i>
+            <h3 class="text-xl font-medium">STM32智能温光照采集系统</h3>
+          </div>
+          <i class="fa fa-chevron-down text-primary transition-transform duration-400 arrow-icon"></i>
+        </div>
+        <!-- 拉开后显示的内容 -->
+        <div class="collapse-content px-5 pb-5">
+          <div class="border-t border-slate-700 pt-5 text-slate-300 space-y-4">
+            <p>基于STM32单片机的环境监测项目，实现温度、光照强度实时采集与屏幕显示。</p>
+            <ul class="space-y-2 text-slate-400">
+              <li>▸ 硬件：STM32F103单片机，温度传感器、光敏电阻，OLED显示屏</li>
+              <li>▸ 软件：标准库开发，使用ADC采集模拟信号，DMA搬运数据，实时刷新OLED</li>
+              <li>▸ 功能：采集环境温度与光照数据，在OLED屏幕实时可视化展示采集结果</li>
+            </ul>
+            <p class="text-slate-500 text-sm mt-4">项目练习嵌入式外设驱动、多通道ADC采集与数据处理。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 兴趣方向 -->
+    <section id="interest" class="mb-16 scroll-reveal">
+      <h2 class="text-3xl font-bold mb-2">兴趣方向</h2>
+      <p class="text-slate-400 mb-8">学习与实践领域</p>
+      <div class="bg-card rounded-xl p-6 border border-slate-700">
+        <ul class="space-y-3 text-slate-300">
+          <li class="flex items-start gap-3">
+            <span class="text-primary">▹</span>嵌入式控制系统，传感器信号采集与数据处理
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary">▹</span>C语言底层编程，单片机外设驱动开发
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary">▹</span>程序设计、算法基础学习
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-sm scroll-reveal">
+    © 2026
+  </footer>
+
+  <script>
+    // 1. 点击折叠拉开
+    const collapseHeader = document.querySelector('.collapse-header');
+    const collapseBody = document.querySelector('.collapse-content');
+    const arrow = document.querySelector('.arrow-icon');
+    collapseHeader.addEventListener('click', function(){
+      collapseBody.classList.toggle('open');
+      if(collapseBody.classList.contains('open')){
+        arrow.style.transform = "rotate(180deg)";
+      }else{
+        arrow.style.transform = "rotate(0deg)";
+      }
+    })
+
+    // 2. 滚动入场过场动画
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      })
+    },{
+      threshold:0.15
+    })
+    revealElements.forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>
